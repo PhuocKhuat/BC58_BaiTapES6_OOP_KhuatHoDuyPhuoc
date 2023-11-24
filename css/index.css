@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header .logo {
+  font-size: 25px;
+  color: #ffb703;
+  cursor: pointer;
+}
+header .logo:hover {
+  color: #f4a261;
+}
+header .headRight {
+  font-size: 25px;
+  color: #e3d5ca;
+  cursor: pointer;
+}
+header .headRight a {
+  text-decoration: none;
+  position: relative;
+}
+header .headRight a.active {
+  color: #f4a261;
+}
+header .headRight a.active::before {
+  opacity: 1;
+  width: 100%;
+}
+header .headRight a:hover {
+  color: #f4a261;
+}
+header .headRight a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #f4a261;
+  transition: 0.3s;
+  opacity: 0;
+}
+header .headRight a:hover:before {
+  width: 100%;
+  opacity: 1;
+}
+
+.content {
+  background-color: #00DBDE;
+  background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+}
+.content .container {
+  width: 70%;
+  margin: 0 auto;
+  height: 100vh;
+}
+.content .container .cardTop {
+  border-radius: 10px;
+}
+.content .container .cardTop .row {
+  padding: 20px;
+}
+.content .container .cardTop .row .col-6 {
+  font-size: 35px;
+  color: #ffb703;
+}
+.content .container .cardTop .row button {
+  font-size: 20px;
+  margin-left: 100px;
+}
+.content .container .cardTop .row .btnA {
+  overflow: hidden;
+  position: relative;
+}
+.content .container .cardTop .row .btnA .btnAdd {
+  position: absolute;
+  transform: translateX(156%);
+}
+.content .container .cardTop .row .btnA #btnAStudent {
+  transform: translateX(-130%);
+}
+.content .container .cardMiddle {
+  padding: 20px;
+  margin-top: 40px;
+  height: 425px;
+  position: relative;
+  overflow: hidden;
+  background: white;
+  border-radius: 10px;
+}
+.content .container .cardMiddle .tableCommon {
+  position: absolute;
+  transform: translateX(220%);
+}
+.content .container .cardMiddle .tableCommon .table3 {
+  position: relative;
+  right: 10px;
+}
+.content .container .cardMiddle #content1 {
+  transform: translateX(0px);
+}
+.content .container .cardMiddle .btnSearch i {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  line-height: 40px;
+  text-align: center;
+  background-color: gray;
+}
+.content .container .cardMiddle .inputTable .TypeParticipant {
+  margin: 20px 0;
+}
+.content .container .cardMiddle table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+.content .container .cardMiddle table .listTh1 th {
+  border: 1px solid rgb(222, 226, 230);
+  text-align: center;
+  padding: 16px 28px;
+  color: #ee9b00;
+}
+.content .container .cardMiddle table .listTh2 th {
+  border: 1px solid rgb(222, 226, 230);
+  text-align: center;
+  padding: 16px 32px;
+  color: #ee9b00;
+}
+.content .container .cardMiddle table .listTh3 th {
+  border: 1px solid rgb(222, 226, 230);
+  text-align: center;
+  padding: 16px 22px;
+  color: #ee9b00;
+}
+.content .container .cardBottom {
+  padding: 1.25rem 1.25rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+header#blur.active {
+  filter: blur(20px);
+}
+
+.content#blur2.active {
+  filter: blur(20px);
+}
+
+.popup .popup-content {
+  position: relative;
+  bottom: 1326px;
+  left: 525px;
+  visibility: hidden;
+  opacity: 0;
+  background: whitesmoke;
+  padding: 15px;
+  border-radius: 10px;
+  width: 150%;
+}
+.popup .popup-content h2 {
+  margin: 0 0 5px;
+  font-size: 40px;
+}
+.popup .popup-content .popup-body {
+  background-color: #faedcd;
+  padding: 10px;
+}
+.popup .openPopup {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup2 .popup-content2 {
+  position: relative;
+  bottom: 1420px;
+  left: 160px;
+  visibility: hidden;
+  background: whitesmoke;
+  padding: 25px;
+  border-radius: 10px;
+  width: 150%;
+}
+.popup2 .popup-content2 h2 {
+  margin: 0 0 25px;
+  font-size: 40px;
+}
+.popup2 .popup-content2 .popup-body {
+  background-color: #faedcd;
+  padding: 10px;
+}
+.popup2 .openPopup2 {
+  visibility: visible;
+}
+
+.popup3 .popup-content3 {
+  position: relative;
+  bottom: 1310px;
+  right: 190px;
+  visibility: hidden;
+  background: whitesmoke;
+  padding: 25px;
+  border-radius: 10px;
+  width: 150%;
+}
+.popup3 .popup-content3 h2 {
+  margin: 0 0 25px;
+  font-size: 40px;
+}
+.popup3 .popup-content3 .popup-body {
+  background-color: #faedcd;
+  padding: 10px;
+}
+.popup3 .openPopup3 {
+  visibility: visible;
+}
+
+.popup-footer {
+  margin-top: 5px;
+}
+
+.fa-arrow-alt-circle-up {
+  display: none;
+}
+
+.fa-arrow-alt-circle-up.active {
+  display: inline-block;
+}
+
+.fa-arrow-alt-circle-down {
+  display: none;
+}
+
+.fa-arrow-alt-circle-down.active {
+  display: inline-block;
+}
+
+.form-control {
+  display: inline !important;
+  width: 92%;
+}/*# sourceMappingURL=index.css.map */

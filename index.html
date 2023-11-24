@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <!-- FONT AWESOME CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- TAILWIND CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.0/tailwind.min.css"
+      integrity="sha512-ksC7McuoU4VJ07WGtca5INyDRXzGsmhyEEJYzoWBkjC/KwuG+IK/pFnxJFNIGmOd8pmGexOxd3FziCPZXQJ4lA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  
+  <body style="position: relative; overflow: hidden;">
+    <!-- Ban đầu chưa có active -->
+    <header class="shadow"  id="blur" style="position: relative; transform: translateY(0%);">
+      <div class="container h-24 flex justify-between pt-2 items-center">
+        <div class="headLeft">
+          <p class="logo space-x-5">
+            Cyber Academy <i class="fa fa-chalkboard-teacher"></i>
+          </p>
+        </div>
+        <div class="headRight">
+          <nav class="space-x-5">
+            <a href="#" class="active">Student</a>
+            <a href="#">Employee</a>
+            <a href="#">Customer</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+    
+    <!-- CONTENTS -->
+    <section class="content pt-10 hero" id="blur2">
+      <div class="container bg-blue-500 rounded-lg">
+        <div class="cardTop shadow">
+          <div class="row">
+            <div class="col-6">List of participants</div>
+            <div class="col-6 btnA">
+              <span class="btnAdd">
+                <button class="btn btn-warning text-light" id="btnAStudent">
+                  Add students
+                </button>
+              </span>
+              <span class="btnAdd">
+                <button class="btn btn-warning text-light" id="btnAEmployee" onclick="btnAEmployee()">
+                  Add employees
+                </button>
+              </span>
+              <span class="btnAdd">
+                <button class="btn btn-warning text-light" id="btnACustomer">
+                  Add customers
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- cardMiddle giống hero -->
+        <div class="cardMiddle">
+          <div class="inputSearch">
+            <span id="search1" class="flex">
+            <input
+              type="text"
+              class="form-control"
+              id="searchCode1"
+              placeholder="Enter participants by code"
+            />
+            <button class="btnSearch" id="btnSearch1">
+              <i class="fa fa-search"></i>
+            </button>
+          </span>
+          <span id="search2" class="flex">
+            <input
+              type="text"
+              class="form-control"
+              id="searchCode2"
+              placeholder="Enter participants by code"
+            />
+            <button class="btnSearch" id="btnSearch2">
+              <i class="fa fa-search"></i>
+            </button>
+            </span>
+            <span class="flex" id="search3">
+            <input
+              type="text"
+              class="form-control"
+              id="searchCode3"
+              placeholder="Enter participants by code"
+            />
+            <button class="btnSearch" id="btnSearch3">
+              <i class="fa fa-search"></i>
+            </button>
+            </span>
+          </div>
+          <div class="inputTable">
+            <div class="TypeParticipant">
+              <button class="btn btn-success" onclick="myContent1()">
+                Student
+              </button>
+              <button
+                class="btn btn-success"
+                onclick="myContent2()"
+                id="btnEmployee"
+              >
+                Employee
+              </button>
+              <button
+                class="btn btn-success"
+                onclick="myContent3()"
+                id="btnCustomer"
+              >
+                Customer
+              </button>
+            </div>
+          </div>
+          <div class="tableCommon" id="content1">
+            <table>
+              <thead>
+                <tr class="listTh1">
+                  <th>
+                    <span id="fullName1">Full Name</span>
+                    <i id="sortUp" class="fa fa-arrow-alt-circle-up"></i>
+                    <i id="sortDown" class="fa fa-arrow-alt-circle-down"></i>
+                  </th>
+                  <th>Adress</th>
+                  <th>Code</th>
+                  <th>Email</th>
+                  <th>Average score</th>
+                  <th><em class="fa fa-cog"></em></th>
+                </tr>
+              </thead>
+              <tbody id="tableList1"></tbody>
+            </table>
+          </div>
+          <div class="tableCommon" id="content2">
+            <table>
+              <thead>
+                <tr class="listTh2">
+                  <th>
+                    <span id="fullName2">Full Name</span>
+                    <i class="fa fa-arrow-alt-circle-up" id="sortUp2"></i>
+                    <i class="fa fa-arrow-alt-circle-down" id="sortDown2"></i>
+                  </th>
+                  <th>Adress</th>
+                  <th>Code</th>
+                  <th>Email</th>
+                  <th>Payroll</th>
+                  <th><em class="fa fa-cog"></em></th>
+                </tr>
+              </thead>
+              <tbody id="tableList2"></tbody>
+            </table>
+          </div>
+          <div class="tableCommon" id="content3">
+            <table class="table3">
+              <thead>
+                <tr class="listTh3">
+                  <th>
+                    <span id="fullName3">Full Name</span>
+                    <i class="fa fa-arrow-alt-circle-up" id="sortUp3"></i>
+                    <i class="fa fa-arrow-alt-circle-down" id="sortDown3"></i>
+                  </th>
+                  <th>Adress</th>
+                  <th>Code</th>
+                  <th>Email</th>
+                  <th>Company Name</th>
+                  <th>Invoice value</th>
+                  <th>Evaluate</th>
+                  <th><em class="fa fa-cog"></em></th>
+                </tr>
+              </thead>
+              <tbody id="tableList3"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="cardBottom"></div>
+      </div>
+    </section>
+    <!-- POPUP LIST-->
+  <div class="popupList flex justify-evenly items-center" style="position: absolute; transform: translateY(100%);">
+    <!-- POPUP 1 -->
+  <div class="popup">
+      <div class="container">
+        <div class="popup-content w-3/4" id="popupContent">
+          <!-- HEADER -->
+          <div class="popup-header">
+            <h2 class="text-center">Log In</h2>
+          </div>
+          <!-- BODY -->
+          <div class="popup-body">
+            <form>
+              <!-- HỌ TÊN -->
+              <div class="form-group">
+                <div class="input-group student">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-address-book"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    value=""
+                    class="form-control input-sm"
+                    placeholder="Full Name"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbTen"></span>
+              </div>
+              <!-- ĐỊA CHỈ -->
+              <div class="form-group">
+                <div class="input-group student">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-address-card"></i
+                    ></span>
+                  </div>
+                  <input
+                  value=""
+                    type="text"
+                    name="address"
+                    id="address"
+                    class="form-control input-sm"
+                    placeholder="Address"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbDiaChi"></span>
+              </div>
+              <!-- MÃ -->
+              <div class="form-group">
+                <div class="input-group student">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-id-badge"></i
+                    ></span>
+                  </div>
+                  <input
+                  value=""
+                    type="text"
+                    name="identify"
+                    id="identify"
+                    class="form-control input-sm"
+                    placeholder="Identify"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbIdentify"></span>
+              </div>
+              <!-- EMAIL -->
+              <div class="form-group">
+                <div class="input-group student">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-envelope"></i
+                    ></span>
+                  </div>
+                  <input
+                  value=""
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="form-control input-sm"
+                    placeholder="Email"
+                  />
+                </div>
+
+                <span class="sp-thongbao" id="tbEmail"></span>
+              </div>
+              <!-- TOÁN -->
+              <div class="form-group">
+                <div class="input-group student">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-calculator" aria-hidden="true"></i
+                    ></span>
+                  </div>
+                  <input
+                  value=""
+                    type="text"
+                    name="math"
+                    id="math"
+                    class="form-control"
+                    placeholder="Math scores"
+                  />
+                </div>
+
+                <span class="sp-thongbao" id="tbMath"></span>
+              </div>
+              <!-- LÝ -->
+              <div class="form-group">
+                <div class="input-group student">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i
+                        class="fab fa-creative-commons-sampling"
+                        aria-hidden="true"
+                      ></i
+                    ></span>
+                  </div>
+                  <input
+                  value=""
+                    type="text"
+                    name="physical"
+                    id="physical"
+                    class="form-control input-sm"
+                    placeholder="Physical scores"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbPhysical"></span>
+              </div>
+              <!-- HOÁ -->
+              <div class="form-group">
+                <div class="input-group student">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-vial" aria-hidden="true"></i
+                    ></span>
+                  </div>
+                  <input
+                  value=""
+                    type="text"
+                    name="chemistry"
+                    id="chemistry"
+                    class="form-control input-sm"
+                    placeholder="Chemistry scores"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbChemistry"></span>
+              </div>
+            </form>
+          </div>
+          <!-- FOOTER -->
+          <div class="popup-footer text-end">
+            <button id="btnThemSV" type="button" class="btn btn-primary">
+              Add students
+            </button>
+            <button id="btnCapNhat" type="button" class="btn btn-success" style="display: none;">Update students</button>
+            <button id="btnDong" type="button" class="btn btn-danger">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- POPUP 2 -->
+    <div class="popup2">
+      <div class="container">
+        <div class="popup-content2 w-1/2" id="popupContent2">
+          <!-- HEADER -->
+          <div class="popup-header">
+            <h2 class="text-center">Log In</h2>
+          </div>
+          <!-- BODY -->
+          <div class="popup-body">
+            <form>
+              <!-- HỌ TÊN -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-address-book"></i
+                    ></span>
+                  </div>
+                  <input
+                  value=""
+                    type="name"
+                    name="name"
+                    id="name2"
+                    class="form-control input-sm"
+                    placeholder="Full Name"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbTen2"></span>
+              </div>
+              <!-- ĐỊA CHỈ -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-address-card"></i
+                    ></span>
+                  </div>
+                  <input
+                  value=""
+                    type="text"
+                    name="address"
+                    id="address2"
+                    class="form-control input-sm"
+                    placeholder="Address"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbDiaChi2"></span>
+              </div>
+              <!-- MÃ -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-id-badge"></i
+                    ></span>
+                  </div>
+                  <input
+                  value=""
+                    type="text"
+                    name="identify"
+                    id="identify2"
+                    class="form-control input-sm"
+                    placeholder="Identify"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbIdentify2"></span>
+              </div>
+              <!-- EMAIL -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-envelope"></i
+                    ></span>
+                  </div>
+                  <input
+                  value=""
+                    type="email"
+                    name="email"
+                    id="email2"
+                    class="form-control input-sm"
+                    placeholder="Email"
+                  />
+                </div>
+
+                <span class="sp-thongbao" id="tbEmail2"></span>
+              </div>
+              <!-- SỐ NGÀY LÀM VIỆC -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-pray" aria-hidden="true"></i
+                    ></span>
+                  </div>
+                  <input
+                  value=""
+                    type="text"
+                    name="workingDay"
+                    id="workingDay"
+                    class="form-control"
+                    placeholder="Working day"
+                  />
+                </div>
+
+                <span class="sp-thongbao" id="tbWorkingDay"></span>
+              </div>
+              <!-- LƯƠNG THEO NGÀY -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i
+                        class="fab fa-creative-commons-sampling"
+                        aria-hidden="true"
+                      ></i
+                    ></span>
+                  </div>
+                  <input
+                  value=""
+                    type="text"
+                    name="dailyWage"
+                    id="dailyWage"
+                    class="form-control input-sm"
+                    placeholder="Daily wage"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbDailyWage"></span>
+              </div>
+            </form>
+          </div>
+          <!-- FOOTER -->
+          <div class="popup-footer mt-8 text-end">
+            <button id="btnThemNV" type="button" class="btn btn-primary">
+              Add employees
+            </button>
+            <button id="btnCapNhat2" style="display: none ;" type="button" class="btn btn-success">Update employees</button>
+            <button id="btnDong2" type="button" class="btn btn-danger">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- POPUP 3 -->
+    <div class="popup3">
+      <div class="container">
+        <div class="popup-content3 w-1/2" id="popupContent3">
+          <!-- HEADER -->
+          <div class="popup-header">
+            <h2 class="text-center">Log In</h2>
+          </div>
+          <!-- BODY -->
+          <div class="popup-body">
+            <form>
+              <!-- HỌ TÊN -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-address-book"></i
+                    ></span>
+                  </div>
+                  <input
+                  value=""
+                    type="name"
+                    name="name"
+                    id="name3"
+                    class="form-control input-sm"
+                    placeholder="Full Name"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbTen3"></span>
+              </div>
+              <!-- ĐỊA CHỈ -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-address-card"></i
+                    ></span>
+                  </div>
+                  <input
+                  value=""
+                    type="text"
+                    name="address"
+                    id="address3"
+                    class="form-control input-sm"
+                    placeholder="Address"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbDiaChi3"></span>
+              </div>
+              <!-- MÃ -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-id-badge"></i
+                    ></span>
+                  </div>
+                  <input
+                  value=""
+                    type="text"
+                    name="identify"
+                    id="identify3"
+                    class="form-control input-sm"
+                    placeholder="Identify"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbIdentify3"></span>
+              </div>
+              <!-- EMAIL -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-envelope"></i
+                    ></span>
+                  </div>
+                  <input
+                  value=""
+                    type="email"
+                    name="email"
+                    id="email3"
+                    class="form-control input-sm"
+                    placeholder="Email"
+                  />
+                </div>
+
+                <span class="sp-thongbao" id="tbEmail3"></span>
+              </div>
+              <!-- TÊN CÔNG TY -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fab fa-500px" aria-hidden="true"></i
+                    ></span>
+                  </div>
+                  <input
+                  value=""
+                    type="text"
+                    name="companyName"
+                    id="companyName"
+                    class="form-control"
+                    placeholder="Company mame"
+                  />
+                </div>
+
+                <span class="sp-thongbao" id="tbCompanyName"></span>
+              </div>
+              <!-- TRỊ GIÁ HÓA ĐƠN -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i
+                        class="fa fa-file-invoice-dollar"
+                        aria-hidden="true"
+                      ></i
+                    ></span>
+                  </div>
+                  <input
+                  value=""
+                    type="text"
+                    name="invoiceValue"
+                    id="invoiceValue"
+                    class="form-control input-sm"
+                    placeholder="Invoice value"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbInvoiceValue"></span>
+              </div>
+              <!-- ĐÁNH GIÁ -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i
+                        class="fab fa-openid"
+                        aria-hidden="true"
+                      ></i
+                    ></span>
+                  </div>
+                  <input
+                  value=""
+                    type="text"
+                    name="evaluate"
+                    id="evaluate"
+                    class="form-control input-sm"
+                    placeholder="Evaluate"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbEvaluate"></span>
+              </div>
+            </form>
+          </div>
+          <!-- FOOTER -->
+          <div class="popup-footer mt-8 text-end">
+            <button id="btnThemKH" type="button" class="btn btn-primary">
+              Add customers
+            </button>
+            <button id="btnCapNhat3" type="button" class="btn btn-success">Update customers</button>
+            <button id="btnDong3" type="button" class="btn btn-danger">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+    <!-- METHOD JS -->
+    <script src="./js/method.js"></script>
+    <!-- VALIDATE JS -->
+    <script src="./js/validate.js"></script>
+    <!-- BUTTON JS -->
+    <script src="./js/button.js"></script>
+    <!-- CONTROLLER JS -->
+    <script src="./js/controller.js"></script>
+    <!-- PERSON JS -->
+    <script type="module" src="./js/person.js"></script>
+    <!-- EMPLOYEE JS -->
+    <script type="module" src="./js/employee.js"></script>
+    <!-- CUSTOMER JS -->
+    <script type="module" src="./js/customer1.js"></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+const elements = document.querySelectorAll('.input-group input');
+    let studentList = {};
+    elements.forEach((item) => {
+    const {name, value} = item; //destructuring.
+    studentList[name] = value;
+    console.log("studentList", studentList);
+  })
+  const student = new Student(studentList.hoTen, studentList.diaChi, studentList.ma, studentList.email, studentList.toan, studentList.ly, studentList.hoa);
+
+  let hoTen = domID('name').value;
+    let diaChi = domID('address').value;
+    let ma = domID('identify').value;
+    let email = domID('email').value;
+    let toan = domID('math').value*1;
+    let ly = domID('physical').value*1;
+    let hoa = domID('chemistry').value*1;
+    const student = new Student(hoTen, diaChi, ma, email, toan, ly, hoa); 
